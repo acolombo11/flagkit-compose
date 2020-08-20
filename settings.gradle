@@ -1,0 +1,3 @@
+include ':flags'
+include ':app'
+rootProject.name = "Flags"

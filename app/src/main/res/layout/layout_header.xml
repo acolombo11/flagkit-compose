@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="60dp"
+    android:paddingBottom="60dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/d_din"
+        android:text="@string/android"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="46sp"
+        app:layout_constraintEnd_toStartOf="@+id/textFlags"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textFlags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/d_din_bold"
+        android:text="@string/flags"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="46sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/textAndroid"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:barrierMargin="20dp"
+        app:constraint_referenced_ids="textFlags,textAndroid" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierFlags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:barrierMargin="10dp"
+        app:constraint_referenced_ids="flagAustralia,flagPanama,flagJapan" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagAustralia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        app:countryCode="au"
+        app:flagStyle="waving"
+        app:layout_constraintEnd_toStartOf="@id/flagPanama"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/textAndroid"
+        app:layout_constraintTop_toBottomOf="@id/barrierText" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagAustralia1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:countryCode="au"
+        app:flagStyle="rounded"
+        app:layout_constraintEnd_toStartOf="@id/flagAustralia2"
+        app:layout_constraintStart_toStartOf="@id/flagAustralia"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagAustralia2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:countryCode="au"
+        app:flagStyle="square"
+        app:layout_constraintEnd_toStartOf="@id/flagAustralia3"
+        app:layout_constraintStart_toEndOf="@id/flagAustralia1"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagAustralia3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:countryCode="au"
+        app:flagStyle="circle"
+        app:layout_constraintStart_toEndOf="@id/flagAustralia2"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagPanama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:countryCode="pa"
+        app:flagStyle="waving"
+        app:layout_constraintEnd_toStartOf="@id/flagJapan"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/flagAustralia"
+        app:layout_constraintTop_toBottomOf="@id/barrierText" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagPanama1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:countryCode="pa"
+        app:flagStyle="rounded"
+        app:layout_constraintEnd_toStartOf="@id/flagPanama2"
+        app:layout_constraintStart_toStartOf="@id/flagPanama"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagPanama2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:countryCode="pa"
+        app:flagStyle="square"
+        app:layout_constraintEnd_toStartOf="@id/flagPanama3"
+        app:layout_constraintStart_toEndOf="@id/flagPanama1"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagPanama3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:countryCode="pa"
+        app:flagStyle="circle"
+        app:layout_constraintStart_toEndOf="@id/flagPanama2"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagJapan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:countryCode="jp"
+        app:flagStyle="waving"
+        app:layout_constraintEnd_toEndOf="@id/textFlags"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/flagPanama"
+        app:layout_constraintTop_toBottomOf="@id/barrierText" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagJapan1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:countryCode="jp"
+        app:flagStyle="rounded"
+        app:layout_constraintEnd_toStartOf="@id/flagJapan2"
+        app:layout_constraintStart_toStartOf="@id/flagJapan"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagJapan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:countryCode="jp"
+        app:flagStyle="square"
+        app:layout_constraintEnd_toStartOf="@id/flagJapan3"
+        app:layout_constraintStart_toEndOf="@id/flagJapan1"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+    <eu.acolombo.flags.FlagView
+        android:id="@+id/flagJapan3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:countryCode="jp"
+        app:flagStyle="circle"
+        app:layout_constraintStart_toEndOf="@id/flagJapan2"
+        app:layout_constraintTop_toBottomOf="@id/barrierFlags" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

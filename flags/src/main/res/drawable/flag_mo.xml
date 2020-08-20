@@ -1,0 +1,72 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="21"
+    android:viewportHeight="15"
+    android:width="21dp"
+    android:height="15dp">
+    <path
+        android:pathData="M0 0H21V15H0V0Z"
+        android:fillType="evenOdd">
+        <aapt:attr
+            name="android:fillColor">
+            <gradient
+                android:startX="10.5"
+                android:endX="10.5"
+                android:endY="15"
+                android:tileMode="clamp">
+                <item
+                    android:color="#FFFFFF"
+                    android:offset="0" />
+                <item
+                    android:color="#F0F0F0"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M0 0H21V15H0V0Z"
+        android:fillType="evenOdd">
+        <aapt:attr
+            name="android:fillColor">
+            <gradient
+                android:startX="10.5"
+                android:endX="10.5"
+                android:endY="15"
+                android:tileMode="clamp">
+                <item
+                    android:color="#079D7B"
+                    android:offset="0" />
+                <item
+                    android:color="#01795E"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <group
+        android:translateX="6"
+        android:translateY="2">
+        <path
+            android:pathData="M2.4518305 6.90229785C2.5949082 6.94030272 2.73629673 6.97283288 2.87486696 7.00000015L0.5 7C0.618605029 7.35602901 0.778240116 7.69149418 0.972877361 8L8.02712264 8L8.02712264 8C8.22175988 7.69149418 8.38139497 7.35602901 8.5 7L6.09273789 7C6.23564626 6.97342299 6.38176522 6.94108962 6.52983342 6.90287496C6.07592352 6.91795726 5.33586703 7 4.5 7C3.65278028 7 2.90399136 6.91571353 2.4518305 6.90229785ZM2.03486814 6.77684443C0.914121039 6.39849793 0.146013313 5.79167067 0.266754997 5.34105657C0.401480524 4.83825405 1.59184645 4.72034517 2.92551171 5.0776997C2.99553548 5.09646251 3.06456206 5.11616246 3.1324836 5.13672218C3.10229564 4.93343568 3.08621989 4.72003757 3.08621989 4.5C3.08621989 3.11928813 3.7191908 2 4.5 2C5.2808092 2 5.91378011 3.11928813 5.91378011 4.5C5.91378011 4.71889423 5.89787099 4.93121783 5.86798584 5.13355247C5.94467469 5.10997668 6.02280331 5.0874933 6.10221442 5.06621516C7.43587968 4.70886063 8.6262456 4.82676952 8.76097113 5.32957203C8.88272959 5.7839808 8.10060539 6.3972448 6.96446944 6.77486936C6.76375643 6.17961082 5.7367541 6 4.5 6C3.26187911 6 2.23397385 6.18000803 2.03486814 6.77684443ZM7.16607559 9C6.43763664 9.62539994 5.51005005 10 4.5 10C3.48994995 10 2.56236336 9.62539994 1.83392441 9L7.16607559 9L7.16607559 9Z"
+            android:fillType="evenOdd">
+            <aapt:attr
+                name="android:fillColor">
+                <gradient
+                    android:startX="4.513872"
+                    android:startY="2"
+                    android:endX="4.513872"
+                    android:endY="10"
+                    android:tileMode="clamp">
+                    <item
+                        android:color="#FFFFFF"
+                        android:offset="0" />
+                    <item
+                        android:color="#F0F0F0"
+                        android:offset="1" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <path
+            android:pathData="M4.5 1C4.22385763 1 4 0.776142375 4 0.5C4 0.223857625 4.22385763 0 4.5 0C4.77614237 0 5 0.223857625 5 0.5C5 0.776142375 4.77614237 1 4.5 1ZM0.5 3.5C0.223857625 3.5 0 3.27614237 0 3C0 2.72385763 0.223857625 2.5 0.5 2.5C0.776142375 2.5 1 2.72385763 1 3C1 3.27614237 0.776142375 3.5 0.5 3.5ZM8.5 3.5C8.22385763 3.5 8 3.27614237 8 3C8 2.72385763 8.22385763 2.5 8.5 2.5C8.77614237 2.5 9 2.72385763 9 3C9 3.27614237 8.77614237 3.5 8.5 3.5ZM7 2C6.72385763 2 6.5 1.77614237 6.5 1.5C6.5 1.22385763 6.72385763 1 7 1C7.27614237 1 7.5 1.22385763 7.5 1.5C7.5 1.77614237 7.27614237 2 7 2ZM2 2C1.72385763 2 1.5 1.77614237 1.5 1.5C1.5 1.22385763 1.72385763 1 2 1C2.27614237 1 2.5 1.22385763 2.5 1.5C2.5 1.77614237 2.27614237 2 2 2Z"
+            android:fillType="evenOdd"
+            android:fillColor="#FCD117" />
+    </group>
+</vector>
