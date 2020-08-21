@@ -1,7 +1,6 @@
 package eu.acolombo.flags
 
 import android.content.Context
-import android.graphics.Path
 import android.os.Build.VERSION.SDK_INT
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat.getDrawable
@@ -27,7 +26,17 @@ class FlagView @JvmOverloads constructor(
         set(value) {
             field = value
             if (value.shape != null) {
-                shapeAppearanceModel = ShapeAppearanceModel.builder(context, value.shape, value.shape).build()
+                shapeAppearanceModel =
+                    ShapeAppearanceModel.builder(context, value.shape, value.shape)
+                        .also {
+                            if (value.edgeInset != null) {
+                                val bias = .2f
+                                val inset = resources.getDimension(value.edgeInset)
+                                it.setTopEdge(FlagEdgeTreatment(inset))
+                                    .setLeftEdge(FlagEdgeTreatment(inset, 1 - bias))
+                                    .setRightEdge(FlagEdgeTreatment(inset, bias))
+                            }
+                        }.build()
             }
 
             if (SDK_INT >= 21 && value.elevation != null) {
@@ -36,14 +45,14 @@ class FlagView @JvmOverloads constructor(
 
             if (SDK_INT >= 23 && value.foreground != null) {
                 foreground = getDrawable(context, value.foreground)
-                foreground.alpha = 0xff/3
+                foreground.alpha = 0xff / 3
             }
         }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        if(flagStyle.square) {
+        if (flagStyle.square) {
             val size = minOf(measuredHeight, measuredWidth)
             setMeasuredDimension(size, size)
         }

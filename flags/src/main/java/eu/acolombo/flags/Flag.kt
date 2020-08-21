@@ -41,7 +41,8 @@ class Flag {
         val square: Boolean = false,
         @StyleRes val shape: Int? = null,
         @DrawableRes val foreground: Int? = null,
-        @DimenRes val elevation: Int? = R.dimen.flag_elevation_s
+        @DimenRes val elevation: Int? = R.dimen.flag_elevation_s,
+        @DimenRes val edgeInset: Int? = null
     ) {
         None(elevation = null), //Rectangle of 21 x 15 points with no styling.
         Rounded(shape = R.style.ShapeAppearance_FlagView_Rounded), //Rectangle of 21 x 15 points with rounded corners.
@@ -50,7 +51,8 @@ class Flag {
         Waving(
             shape = R.style.ShapeAppearance_MaterialComponents_SmallComponent,
             foreground = R.drawable.flag_waving,
-            elevation = R.dimen.flag_elevation_m
+            elevation = R.dimen.flag_elevation_m,
+            edgeInset = R.dimen.flag_edge_inset
         ),
     }
 

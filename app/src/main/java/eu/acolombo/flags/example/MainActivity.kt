@@ -1,10 +1,16 @@
 package eu.acolombo.flags.example
 
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.ShapeAppearanceModel
+import com.google.android.material.shape.TriangleEdgeTreatment
 import eu.acolombo.flags.Flag
+import eu.acolombo.flags.FlagEdgeTreatment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         imageFlag.setImageDrawable(drawable)
         layoutContainer.addView(originalImage, WRAP_CONTENT, WRAP_CONTENT)
         layoutContainer.addView(styledImage, WRAP_CONTENT, WRAP_CONTENT)
+
+        imageFlag.requestLayout()
 
     }
 
