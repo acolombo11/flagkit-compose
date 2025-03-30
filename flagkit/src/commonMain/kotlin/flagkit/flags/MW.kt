@@ -1,0 +1,119 @@
+package flagkit.flags
+
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.unit.dp
+import flagkit.FlagKit
+
+val FlagKit.MW: ImageVector
+    get() {
+        if (_MW != null) {
+            return _MW!!
+        }
+        _MW = ImageVector.Builder(
+            name = "MW",
+            defaultWidth = 21.dp,
+            defaultHeight = 15.dp,
+            viewportWidth = 21f,
+            viewportHeight = 15f
+        ).apply {
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFFFFFFFF),
+                        1f to Color(0xFFF0F0F0)
+                    ),
+                    start = Offset(10.5f, 0f),
+                    end = Offset(10.5f, 15f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(0f, 0f)
+                horizontalLineToRelative(21f)
+                verticalLineToRelative(15f)
+                horizontalLineToRelative(-21f)
+                close()
+            }
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFF262626),
+                        1f to Color(0xFF0D0D0D)
+                    ),
+                    start = Offset(10.5f, 0f),
+                    end = Offset(10.5f, 5f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(0f, 0f)
+                horizontalLineToRelative(21f)
+                verticalLineToRelative(5f)
+                horizontalLineToRelative(-21f)
+                close()
+            }
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFFE42038),
+                        1f to Color(0xFFCC162C)
+                    ),
+                    start = Offset(10.5f, 2f),
+                    end = Offset(10.5f, 9f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(10.5f, 5.5f)
+                moveToRelative(-3.5f, 0f)
+                arcToRelative(3.5f, 3.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 7f, 0f)
+                arcToRelative(3.5f, 3.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, -7f, 0f)
+            }
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFFE42038),
+                        1f to Color(0xFFCC162C)
+                    ),
+                    start = Offset(10.5f, 5f),
+                    end = Offset(10.5f, 10f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(0f, 5f)
+                horizontalLineToRelative(21f)
+                verticalLineToRelative(5f)
+                horizontalLineToRelative(-21f)
+                close()
+            }
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFF47B849),
+                        1f to Color(0xFF399E3B)
+                    ),
+                    start = Offset(10.5f, 10f),
+                    end = Offset(10.5f, 15f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(0f, 10f)
+                horizontalLineToRelative(21f)
+                verticalLineToRelative(5f)
+                horizontalLineToRelative(-21f)
+                close()
+            }
+        }.build()
+
+        return _MW!!
+    }
+
+@Suppress("ObjectPropertyName")
+private var _MW: ImageVector? = null

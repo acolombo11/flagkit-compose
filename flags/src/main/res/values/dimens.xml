@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="flag_elevation_s">2dp</dimen>
-    <dimen name="flag_elevation_m">4dp</dimen>
-    <dimen name="flag_edge_inset">2dp</dimen>
-</resources>
