@@ -23,7 +23,6 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    linuxX64()
 
     sourceSets {
         commonMain.dependencies {
@@ -39,8 +38,14 @@ android {
     namespace = "flagkit"
     compileSdk = libs.versions.android.maxSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
+    compileOptions {
+        val javaVersion = JavaVersion.toVersion(libs.versions.java.jdk.get().toInt())
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
 }
 
+// https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
