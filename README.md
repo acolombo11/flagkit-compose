@@ -1,57 +1,35 @@
 ![Header](Header.png)
 
-<div align="center">
-<a href="https://travis-ci.org/madebybowtie/FlagKit" target="_blank">
-<img src="http://img.shields.io/travis/madebybowtie/FlagKit.svg?style=flat" />
-</a>
+# flagkit-compose &nbsp; ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
 
-<a href="https://github.com/Carthage/Carthage" target="_blank">
-<img src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat" />
-</a>
 
-<a href="https://cocoapods.org/pods/FlagKit" target="_blank">
-<img src="https://img.shields.io/cocoapods/v/FlagKit.svg?style=flat" />
-</a>
-</div>
+Beautiful flag icons for Compose Multiplatform and Android. All flags are provided as a Kotlin Multiplatform library through Composable functions.
 
-# FlagKit
+FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybowtie/FlagKit) to Kotlin.
 
-Beautiful flag icons for usage in apps and on the web. All flags are provided as stand-alone PNG and SVG files. FlagKit also provides an Asset Catalog and framework for easy use on Apple platforms.
-
-## Installation (iOS, macOS, tvOS)
-
-FlagKit provides a framework for easy installation as a dependency. You can also manually copy the Asset Catalog into your project.
-
-### SwiftPM
-Add the folowinig as repository URL:
+### Setup
+Add FlagKit dependency to your application:
 
 ```
-https://github.com/madebybowtie/FlagKit.git
+implementation("eu.acolombo.flagkit:flagkit:1.0.0")
 ```
 
-### Carthage
-Add the following line to your `Cartfile`:
+If you are using version catalogs:
 
 ```
-github "madebybowtie/FlagKit"
+[versions]
+flagkit = "1.0.0"
+...
+
+[libraries]
+flagkit = { group = "eu.acolombo.flagkit", name = "flagkit", version.ref = "flagkit" }
+...
 ```
 
-### CocoaPods
-Add the following line to your `Podfile`:
+## Usage
+ ~~FlagKit provides both rectangular unstyled flags and styled flags in a variety of shapes. Our [sample project](Sources/Swift/FlagKitDemo-iOS) demonstrates how to display flags and customize them into different shapes (rounded corners, square, circle).~~
 
-```
-pod 'FlagKit'
-```
-
-### Manual
-Add `Assets/FlagKit.xcassets` to your target.
-
-## Usage (iOS, macOS, tvOS)
-FlagKit provides both rectangular unstyled flags and styled flags in a variety of shapes. Our [sample project](Sources/Swift/FlagKitDemo-iOS) demonstrates how to display flags and customize them into different shapes (rounded corners, square, circle).
-
-> **Note:** Styling is currently not supported by FlagKit on macOS
-
-This brief example loads the flag for the users current locale, and retrieves the unstyled flag and a styled flag:
+ ~~This brief example loads the flag for the users current locale, and retrieves the unstyled flag and a styled flag:~~
 
 ```swift
 let countryCode = Locale.current.regionCode!
@@ -64,7 +42,7 @@ let originalImage = flag.originalImage
 let styledImage = flag.image(style: .circle)
 ```
 
-You can always access the underlying assets directly, through the bundled Asset Catalog:
+ ~~You can always access the underlying assets directly, through the bundled Asset Catalog:~~
 
 ```swift
 let countryCode = Locale.current.regionCode!
@@ -72,15 +50,19 @@ let bundle = FlagKit.assetBundle
 let originalImage = UIImage(named: countryCode, in: bundle, compatibleWith: nil)
 ```
 
+## TODO
+
+- [ ] Update the Usage, info above is not valid
+- [ ] Create better demo app
+- [ ] Create better README banner
+- [ ] Add Unit and UI tests
+- [ ] Check Previews with Fleet
+
 ## Reference
 
 FlagKit provides over 250 flags. A list of all flags can be [found here](Assets/Flags.md).
 
-## More Info
-
-Have a question? Please [open an issue](https://github.com/madebybowtie/FlagKit/issues/new)!
-
 ## License
 
-FlagKit is released under the MIT license. See
-[LICENSE](https://github.com/madebybowtie/FlagKit/blob/master/LICENSE).
+FlagKit Compose is released under the MIT license. See
+[LICENSE](https://github.com/acolombo11/flagkit-compose/blob/master/LICENSE).
