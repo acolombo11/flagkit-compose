@@ -2,7 +2,6 @@ package flagkit
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -10,10 +9,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.DpSize
-import androidx.compose.ui.unit.dp
 import flagkit.flags.*
 import flagkit.flags.AD
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 internal data class Flag(
     val countryCode: String,
