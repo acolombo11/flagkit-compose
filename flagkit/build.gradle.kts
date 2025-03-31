@@ -13,7 +13,7 @@ group = "eu.acolombo.flagkit"
 version = "1.0.0"
 
 kotlin {
-    jvm()
+    jvmToolchain(libs.versions.java.jdk.get().toInt())
     androidTarget {
         publishLibraryVariants("release")
         compilerOptions {
