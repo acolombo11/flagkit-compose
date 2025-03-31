@@ -5,6 +5,7 @@ android-maxSdk = "35"
 java-jdk = "21"
 androidxActivityCompose = "1.10.1"
 composePlugin = "1.7.3"
+mavenPlugin = "0.31.0"
 kotlin = "2.1.10"
 
 [libraries]
@@ -16,3 +17,4 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "composePlugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPlugin" }
