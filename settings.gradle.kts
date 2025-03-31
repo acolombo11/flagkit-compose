@@ -28,5 +28,5 @@ dependencyResolutionManagement {
     }
 }
 
-include(":app")
+include(":demoApp")
 include("flagkit")

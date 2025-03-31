@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import flagkit.Flag
 
 @Composable
-fun App() {
+fun DemoApp() {
     MaterialTheme(
         colorScheme = MaterialTheme.colorScheme.copy(
             background = Color(0xFFDF91BE),
