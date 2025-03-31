@@ -9,9 +9,13 @@ plugins {
     alias(libs.plugins.maven.publish)
 }
 
+group = "eu.acolombo.flagkit"
+version = "1.0.0"
+
 kotlin {
-    jvmToolchain(libs.versions.java.jdk.get().toInt())
+    jvm()
     androidTarget {
+        publishLibraryVariants("release")
         compilerOptions {
             jvmTarget.set(JvmTarget.fromTarget(libs.versions.java.jdk.get()))
         }
@@ -19,6 +23,7 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    linuxX64()
 
     sourceSets {
         commonMain.dependencies {
