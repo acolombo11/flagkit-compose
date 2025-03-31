@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import flagkit.Flag
@@ -16,6 +17,10 @@ import flagkit.Flag
 @Composable
 fun App() {
     MaterialTheme(
+        colorScheme = MaterialTheme.colorScheme.copy(
+            background = Color(0xFFDF91BE),
+            onBackground = Color.Black,
+        )
     ) {
         Scaffold { padding ->
             Column(
@@ -27,8 +32,8 @@ fun App() {
             ) {
                 Flag("it")
                 Flag("it", style = flagkit.FlagStyle.Circle)
-                Flag("it", style = flagkit.FlagStyle.Circle, size = DpSize(100.dp, 50.dp))
-                Flag("it", size = DpSize(100.dp, 50.dp))
+                Flag("it", size = DpSize(84.dp, 60.dp))
+                Flag("it", style = flagkit.FlagStyle.Circle, size = DpSize(60.dp, 60.dp))
             }
         }
     }
