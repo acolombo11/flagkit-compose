@@ -26,10 +26,11 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.ui)
+            implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(compose.foundation)
+            implementation(compose.runtime)
+            implementation(compose.ui)
         }
     }
 }

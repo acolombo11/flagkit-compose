@@ -46,9 +46,6 @@ android {
     namespace = "eu.acolombo.flagkit.demo"
     compileSdk = libs.versions.android.maxSdk.get().toInt()
 
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.maxSdk.get().toInt()
