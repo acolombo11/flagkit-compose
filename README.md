@@ -10,20 +10,20 @@ FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybow
 ### Setup
 Add FlagKit dependency to your application:
 
-```
+```gradle.kts
 implementation("eu.acolombo.flagkit:flagkit:1.0.0")
 ```
 
 If you are using version catalogs:
 
-```
+```toml
 [versions]
 flagkit = "1.0.0"
-...
+# …
 
 [libraries]
 flagkit = { group = "eu.acolombo.flagkit", name = "flagkit", version.ref = "flagkit" }
-...
+# …
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ let bundle = FlagKit.assetBundle
 let originalImage = UIImage(named: countryCode, in: bundle, compatibleWith: nil)
 ```
 
-## TODO
+## Todo
 
 - [ ] Update the Usage, info above is not valid
 - [ ] Create better demo app
@@ -60,7 +60,7 @@ let originalImage = UIImage(named: countryCode, in: bundle, compatibleWith: nil)
 
 ## Reference
 
-FlagKit provides over 250 flags. A list of all flags can be [found here](Assets/Flags.md).
+FlagKit provides over 250 flags. A list of all flags can be [found here](assets/Flags.md).
 
 ## License
 
