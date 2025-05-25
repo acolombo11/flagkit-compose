@@ -1,12 +1,12 @@
 [versions]
-agp = "8.9.2"
+agp = "8.10.0"
 android-minSdk = "21"
-android-maxSdk = "35"
+android-maxSdk = "36"
 java-jdk = "21"
 androidxActivityCompose = "1.10.1"
-composeMultiplatform = "1.8.0"
+composeMultiplatform = "1.8.1"
 mavenPlugin = "0.31.0"
-kotlin = "2.1.20"
+kotlin = "2.1.21"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
