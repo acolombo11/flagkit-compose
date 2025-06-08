@@ -24,7 +24,7 @@ sealed class FlagStyle(val size: Size) {
 
 @Composable
 @Deprecated(
-    "1:1 Implementation of FlagKit iOS Api." +
+    "1:1 Implementation of FlagKit iOS Api. " +
             "Usage is discouraged as the compose api is better."
 )
 fun Flag(
