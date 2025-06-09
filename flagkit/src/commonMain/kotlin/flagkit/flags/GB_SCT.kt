@@ -9,13 +9,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.GBSCT: ImageVector
+val FlagKit.GB_SCT: ImageVector
     get() {
-        if (_GBSCT != null) {
-            return _GBSCT!!
+        if (_GB_SCT != null) {
+            return _GB_SCT!!
         }
-        _GBSCT = ImageVector.Builder(
-            name = "GBSCT",
+        _GB_SCT = ImageVector.Builder(
+            name = "GB_SCT",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -86,8 +86,8 @@ val FlagKit.GBSCT: ImageVector
             }
         }.build()
 
-        return _GBSCT!!
+        return _GB_SCT!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _GBSCT: ImageVector? = null
+private var _GB_SCT: ImageVector? = null

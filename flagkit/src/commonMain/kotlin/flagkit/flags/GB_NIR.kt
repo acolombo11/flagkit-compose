@@ -12,13 +12,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.GBNIR: ImageVector
+val FlagKit.GB_NIR: ImageVector
     get() {
-        if (_GBNIR != null) {
-            return _GBNIR!!
+        if (_GB_NIR != null) {
+            return _GB_NIR!!
         }
-        _GBNIR = ImageVector.Builder(
-            name = "GBNIR",
+        _GB_NIR = ImageVector.Builder(
+            name = "GB_NIR",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -272,8 +272,8 @@ val FlagKit.GBNIR: ImageVector
             }
         }.build()
 
-        return _GBNIR!!
+        return _GB_NIR!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _GBNIR: ImageVector? = null
+private var _GB_NIR: ImageVector? = null

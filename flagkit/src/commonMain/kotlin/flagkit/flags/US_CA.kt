@@ -11,13 +11,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.USCA: ImageVector
+val FlagKit.US_CA: ImageVector
     get() {
-        if (_USCA != null) {
-            return _USCA!!
+        if (_US_CA != null) {
+            return _US_CA!!
         }
-        _USCA = ImageVector.Builder(
-            name = "USCA",
+        _US_CA = ImageVector.Builder(
+            name = "US_CA",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -809,8 +809,8 @@ val FlagKit.USCA: ImageVector
             }
         }.build()
 
-        return _USCA!!
+        return _US_CA!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _USCA: ImageVector? = null
+private var _US_CA: ImageVector? = null

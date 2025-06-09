@@ -9,13 +9,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.GBZET: ImageVector
+val FlagKit.GB_ENG: ImageVector
     get() {
-        if (_GBZET != null) {
-            return _GBZET!!
+        if (_GB_ENG != null) {
+            return _GB_ENG!!
         }
-        _GBZET = ImageVector.Builder(
-            name = "GBZET",
+        _GB_ENG = ImageVector.Builder(
+            name = "GB_ENG",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -42,8 +42,8 @@ val FlagKit.GBZET: ImageVector
             path(
                 fill = Brush.linearGradient(
                     colorStops = arrayOf(
-                        0f to Color(0xFF187AE5),
-                        1f to Color(0xFF0F68C9)
+                        0f to Color(0xFFE82739),
+                        1f to Color(0xFFCA1A2B)
                     ),
                     start = Offset(10.5f, 0f),
                     end = Offset(10.5f, 15f)
@@ -51,42 +51,25 @@ val FlagKit.GBZET: ImageVector
                 strokeLineWidth = 1f,
                 pathFillType = PathFillType.EvenOdd
             ) {
-                moveTo(0f, 0f)
-                horizontalLineToRelative(21f)
-                verticalLineToRelative(15f)
-                horizontalLineToRelative(-21f)
-                close()
-            }
-            path(
-                fill = Brush.linearGradient(
-                    colorStops = arrayOf(
-                        0f to Color(0xFFFFFFFF),
-                        1f to Color(0xFFF0F0F0)
-                    ),
-                    start = Offset(10.5f, 0f),
-                    end = Offset(10.5f, 15f)
-                ),
-                strokeLineWidth = 1f,
-                pathFillType = PathFillType.EvenOdd
-            ) {
-                moveTo(0f, 9f)
-                lineToRelative(6f, 0f)
-                lineToRelative(0f, 6f)
-                lineToRelative(3f, 0f)
-                lineToRelative(0f, -6f)
-                lineToRelative(12f, 0f)
-                lineToRelative(0f, -3f)
-                lineToRelative(-12f, 0f)
-                lineToRelative(0f, -6f)
-                lineToRelative(-3f, 0f)
-                lineToRelative(0f, 6f)
-                lineToRelative(-6f, 0f)
+                moveTo(9f, 6f)
+                lineTo(0f, 6f)
+                lineTo(0f, 9f)
+                lineTo(9f, 9f)
+                lineTo(9f, 15f)
+                lineTo(12f, 15f)
+                lineTo(12f, 9f)
+                lineTo(21f, 9f)
+                lineTo(21f, 6f)
+                lineTo(12f, 6f)
+                lineTo(12f, 0f)
+                lineTo(9f, 0f)
+                lineTo(9f, 6f)
                 close()
             }
         }.build()
 
-        return _GBZET!!
+        return _GB_ENG!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _GBZET: ImageVector? = null
+private var _GB_ENG: ImageVector? = null

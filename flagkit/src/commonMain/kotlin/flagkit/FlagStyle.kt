@@ -24,7 +24,7 @@ sealed class FlagStyle(val size: Size) {
 
 @Composable
 @Deprecated(
-    "1:1 Implementation of FlagKit iOS Api. " +
+    "1:1 Implementation of FlagKit iOS Api." +
             "Usage is discouraged as the compose api is better."
 )
 fun Flag(
@@ -41,7 +41,7 @@ fun Flag(
     Flag(
         modifier = modifier,
         size = size,
-        countryCode = countryCode,
+        code = countryCode,
         contentScale = when (style) {
             FlagStyle.None, is FlagStyle.RoundedRect -> ContentScale.FillWidth
             FlagStyle.Circle, FlagStyle.Square -> ContentScale.Crop

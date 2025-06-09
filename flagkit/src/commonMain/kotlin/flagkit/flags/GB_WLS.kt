@@ -9,13 +9,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.GBWLS: ImageVector
+val FlagKit.GB_WLS: ImageVector
     get() {
-        if (_GBWLS != null) {
-            return _GBWLS!!
+        if (_GB_WLS != null) {
+            return _GB_WLS!!
         }
-        _GBWLS = ImageVector.Builder(
-            name = "GBWLS",
+        _GB_WLS = ImageVector.Builder(
+            name = "GB_WLS",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -206,8 +206,8 @@ val FlagKit.GBWLS: ImageVector
             }
         }.build()
 
-        return _GBWLS!!
+        return _GB_WLS!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _GBWLS: ImageVector? = null
+private var _GB_WLS: ImageVector? = null

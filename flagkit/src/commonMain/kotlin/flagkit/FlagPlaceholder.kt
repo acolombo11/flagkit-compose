@@ -42,7 +42,7 @@ fun FlagPlaceholder(
 
 @Composable
 fun Flag(
-    countryCode: String,
+    code: String,
     shape: Shape,
     size: DpSize,
     placeholderColor: Color,
@@ -51,7 +51,7 @@ fun Flag(
     modifier: Modifier = Modifier,
 ) {
     Flag(
-        countryCode = countryCode,
+        code = code,
         shape = shape,
         size = size,
         modifier = modifier,

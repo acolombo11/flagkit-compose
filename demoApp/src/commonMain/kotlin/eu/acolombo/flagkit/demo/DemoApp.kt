@@ -3,10 +3,10 @@ package eu.acolombo.flagkit.demo
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,10 +23,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -40,26 +44,34 @@ import androidx.compose.ui.unit.dp
 import eu.acolombo.flagkit.demo.theme.Browse
 import eu.acolombo.flagkit.demo.theme.Icons
 import eu.acolombo.flagkit.demo.theme.PlusJakartaSans
+import eu.acolombo.flagkit.demo.theme.dynamicColorScheme
 import flagkit.Flag
+import flagkit.FlagKit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DemoApp() {
+fun DemoApp(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+) {
     MaterialTheme(
-        colorScheme = MaterialTheme.colorScheme.copy(
-        ),
+        colorScheme = dynamicColorScheme
+            ?: if (darkTheme) darkColorScheme() else lightColorScheme(),
         typography = MaterialTheme.typography.copy(
             titleLarge = MaterialTheme.typography.titleLarge.copy(
                 fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.ExtraBold
+                fontWeight = FontWeight.ExtraBold,
             ),
             headlineSmall = MaterialTheme.typography.headlineSmall.copy(
                 fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.ExtraBold
+                fontWeight = FontWeight.ExtraBold,
             ),
             bodyLarge = MaterialTheme.typography.bodyLarge.copy(
                 fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Medium,
+            ),
+            labelLarge = MaterialTheme.typography.bodyLarge.copy(
+                fontFamily = PlusJakartaSans,
+                fontWeight = FontWeight.ExtraBold,
             ),
         )
     ) {
@@ -70,8 +82,22 @@ fun DemoApp() {
                 )
             }
         ) { padding ->
+            var flag by remember { mutableStateOf(FlagKit.Flag.US) }
             var height by remember { mutableFloatStateOf(92f) }
             var rounding by remember { mutableFloatStateOf(8f) }
+            var showFlagPicker by remember { mutableStateOf(false) }
+            val flagPickerState = rememberLazyListState()
+
+            if (showFlagPicker) {
+                FlagPickerDialog(
+                    modifier = Modifier.fillMaxHeight(.9f)
+                        .clip(MaterialTheme.shapes.extraLarge),
+                    lazyState = flagPickerState,
+                    selectedFlag = flag,
+                    onSelectFlag = { flag = it },
+                    hidePicker = { showFlagPicker = false },
+                )
+            }
 
             LazyColumn(
                 contentPadding = padding,
@@ -90,18 +116,20 @@ fun DemoApp() {
                         contentAlignment = Alignment.Center,
                     ) {
                         Flag(
-                            countryCode = "us",
+                            code = flag.name,
                             size = DpSize((height * 1.4).dp, height.dp),
                             shape = RoundedCornerShape(rounding.dp),
                         )
+                        if (flag == FlagKit.Flag.IL) {
+                            Text("\uD83D\uDD95", style = MaterialTheme.typography.headlineSmall)
+                        }
                     }
                 }
-
                 item {
-                    TitleItem("Locale")
+                    TitleItem("Flag")
                 }
                 item {
-                    LocaleItem()
+                    LocaleItem(flag = flag, onClick = { showFlagPicker = true })
                 }
                 item {
                     TitleItem("Style")
@@ -143,6 +171,8 @@ fun TitleItem(title: String) {
 
 @Composable
 fun LocaleItem(
+    flag: FlagKit.Flag,
+    onClick: () -> Unit,
     height: Dp = 52.dp,
     shape: Shape = RoundedCornerShape(12.dp),
 ) {
@@ -153,14 +183,14 @@ fun LocaleItem(
         modifier = Modifier
             .clip(shape)
             .fillMaxWidth()
-            .clickable(interactionSource = interactionSource, indication = null) { },
+            .clickable(interactionSource = interactionSource, indication = null, onClick = onClick),
     ) {
         Box(
             modifier = Modifier
                 .clip(shape)
                 .size(height)
                 .background(MaterialTheme.colorScheme.surfaceContainer)
-                .clickable(interactionSource, indication = ripple()) { },
+                .clickable(interactionSource, indication = ripple(), onClick = onClick),
             contentAlignment = Alignment.Center,
         ) {
             Icon(imageVector = Icons.Browse, contentDescription = null)
@@ -169,10 +199,10 @@ fun LocaleItem(
             modifier = Modifier
                 .weight(1f)
                 .clip(shape)
-                .clickable(interactionSource, indication = ripple()) { },
+                .clickable(interactionSource, indication = ripple(), onClick = onClick),
         ) {
-            Text("English (United States)")
-            Text("en-US", modifier = Modifier.alpha(.5f))
+            Text(flag.region)
+            Text(flag.name, modifier = Modifier.alpha(.5f))
         }
     }
 }
@@ -187,7 +217,14 @@ fun SizeItem(
 ) {
     Column {
         Column {
-            Text("$title: ${size.toInt()} dp")
+            Row {
+                Text(title, modifier = Modifier.weight(1f))
+                Text(
+                    text = "${size.toInt()} dp",
+                    modifier = Modifier.alpha(.5f),
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
             Slider(
                 value = size,
                 valueRange = minimumSize..maximumSize,

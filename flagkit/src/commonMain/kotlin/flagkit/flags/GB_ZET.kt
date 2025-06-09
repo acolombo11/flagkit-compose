@@ -9,13 +9,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import flagkit.FlagKit
 
-val FlagKit.GBENG: ImageVector
+val FlagKit.GB_ZET: ImageVector
     get() {
-        if (_GBENG != null) {
-            return _GBENG!!
+        if (_GB_ZET != null) {
+            return _GB_ZET!!
         }
-        _GBENG = ImageVector.Builder(
-            name = "GBENG",
+        _GB_ZET = ImageVector.Builder(
+            name = "GB_ZET",
             defaultWidth = 21.dp,
             defaultHeight = 15.dp,
             viewportWidth = 21f,
@@ -42,8 +42,8 @@ val FlagKit.GBENG: ImageVector
             path(
                 fill = Brush.linearGradient(
                     colorStops = arrayOf(
-                        0f to Color(0xFFE82739),
-                        1f to Color(0xFFCA1A2B)
+                        0f to Color(0xFF187AE5),
+                        1f to Color(0xFF0F68C9)
                     ),
                     start = Offset(10.5f, 0f),
                     end = Offset(10.5f, 15f)
@@ -51,25 +51,42 @@ val FlagKit.GBENG: ImageVector
                 strokeLineWidth = 1f,
                 pathFillType = PathFillType.EvenOdd
             ) {
-                moveTo(9f, 6f)
-                lineTo(0f, 6f)
-                lineTo(0f, 9f)
-                lineTo(9f, 9f)
-                lineTo(9f, 15f)
-                lineTo(12f, 15f)
-                lineTo(12f, 9f)
-                lineTo(21f, 9f)
-                lineTo(21f, 6f)
-                lineTo(12f, 6f)
-                lineTo(12f, 0f)
-                lineTo(9f, 0f)
-                lineTo(9f, 6f)
+                moveTo(0f, 0f)
+                horizontalLineToRelative(21f)
+                verticalLineToRelative(15f)
+                horizontalLineToRelative(-21f)
+                close()
+            }
+            path(
+                fill = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0f to Color(0xFFFFFFFF),
+                        1f to Color(0xFFF0F0F0)
+                    ),
+                    start = Offset(10.5f, 0f),
+                    end = Offset(10.5f, 15f)
+                ),
+                strokeLineWidth = 1f,
+                pathFillType = PathFillType.EvenOdd
+            ) {
+                moveTo(0f, 9f)
+                lineToRelative(6f, 0f)
+                lineToRelative(0f, 6f)
+                lineToRelative(3f, 0f)
+                lineToRelative(0f, -6f)
+                lineToRelative(12f, 0f)
+                lineToRelative(0f, -3f)
+                lineToRelative(-12f, 0f)
+                lineToRelative(0f, -6f)
+                lineToRelative(-3f, 0f)
+                lineToRelative(0f, 6f)
+                lineToRelative(-6f, 0f)
                 close()
             }
         }.build()
 
-        return _GBENG!!
+        return _GB_ZET!!
     }
 
 @Suppress("ObjectPropertyName")
-private var _GBENG: ImageVector? = null
+private var _GB_ZET: ImageVector? = null

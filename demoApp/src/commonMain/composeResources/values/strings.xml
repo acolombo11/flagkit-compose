@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_dismiss">Dismiss</string>
+    <string name="button_return_to_top">Return to top</string>
+    <string name="label_search_flag">Search flag</string>
+</resources>

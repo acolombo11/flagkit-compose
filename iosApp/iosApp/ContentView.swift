@@ -1,6 +1,6 @@
+import demoApp
 import SwiftUI
 import UIKit
-import FlagKitDemoApp
 
 struct ComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {

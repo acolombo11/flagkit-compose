@@ -10,7 +10,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 private fun Preview() {
     Flag(
-        countryCode = "IT",
+        code = "IT",
         shape = RoundedCornerShape(6.dp),
         size = DpSize(56.dp, 40.dp),
     )
@@ -20,7 +20,7 @@ private fun Preview() {
 @Composable
 private fun PreviewPlaceholder() {
     Flag(
-        countryCode = "GB",
+        code = "GB",
         shape = RoundedCornerShape(6.dp),
         size = DpSize(56.dp, 40.dp),
     )
