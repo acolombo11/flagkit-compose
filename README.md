@@ -1,11 +1,14 @@
-![Header](Header.png)
-
 # flagkit-compose &nbsp; ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
-
 
 Beautiful flag icons for Compose Multiplatform and Android. All flags are provided as a Kotlin Multiplatform library through Composable functions.
 
 FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybowtie/FlagKit) to Kotlin.
+
+## 📸 Screenshots
+
+|                                               |                                               |                                               |                                           |
+|-----------------------------------------------|-----------------------------------------------|-----------------------------------------------|-------------------------------------------|
+| ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-IT](docs/screenshot-android-ma.png) | ![Android-IT](docs/screenshot-ios-us.png) |
 
 ### Setup
 Add FlagKit dependency to your application:
@@ -53,10 +56,9 @@ let originalImage = UIImage(named: countryCode, in: bundle, compatibleWith: nil)
 ## Todo
 
 - [ ] Update the Usage, info above is not valid
-- [ ] Create better demo app
-- [ ] Create better README banner
+- [ ] Cleanup demo app
 - [ ] Add Unit and UI tests
-- [ ] Check Previews with Fleet
+- [ ] Check Previews
 
 ## Reference
 
