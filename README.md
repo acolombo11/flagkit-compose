@@ -1,4 +1,4 @@
-# flagkit-compose &nbsp; ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
+# flagkit-compose &nbsp;
 
 Beautiful flag icons for Compose Multiplatform and Android. All flags are provided as a Kotlin Multiplatform library through Composable functions.
 
@@ -10,11 +10,11 @@ FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybow
 |-----------------------------------------------|-----------------------------------------------|-----------------------------------------------|---------------------------------------|
 | ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-MA](docs/screenshot-android-ma.png) | ![iOs-US](docs/screenshot-ios-us.png) |
 
-## ⚙️ Setup
+## ⚙️ Setup ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
 Add FlagKit dependency to your application:
 
 ```gradle.kts
-implementation("eu.acolombo.flagkit:flagkit:1.0.0")
+implementation("eu.acolombo.flagkit:flagkit:1.1.0")
 ```
 
 If you are using version catalogs:
