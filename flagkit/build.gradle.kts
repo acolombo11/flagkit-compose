@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "eu.acolombo.flagkit"
-version = "1.0.0"
+version = "1.1.0"
 
 kotlin {
     jvmToolchain(libs.versions.java.jdk.get().toInt())
