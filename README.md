@@ -6,9 +6,9 @@ FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybow
 
 ## 📸 Screenshots
 
-| Android                                       | Android                                       | Android                                       | iOs                                   |
+| Android 🇵🇸                                    | Android 🇮🇹                                    | Android 🇲🇦                                     | iOs 🇺🇸                                |
 |-----------------------------------------------|-----------------------------------------------|-----------------------------------------------|---------------------------------------|
-| ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-IT](docs/screenshot-android-ma.png) | ![iOs-US](docs/screenshot-ios-us.png) |
+| ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-MA](docs/screenshot-android-ma.png) | ![iOs-US](docs/screenshot-ios-us.png) |
 
 ## ⚙️ Setup
 Add FlagKit dependency to your application:
