@@ -21,7 +21,7 @@ If you are using version catalogs:
 
 ```toml
 [versions]
-flagkit = "1.0.0"
+flagkit = "1.1.0"
 # …
 
 [libraries]
