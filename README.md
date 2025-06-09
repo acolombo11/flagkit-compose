@@ -10,7 +10,7 @@ FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybow
 |-----------------------------------------------|-----------------------------------------------|-----------------------------------------------|---------------------------------------|
 | ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-MA](docs/screenshot-android-ma.png) | ![iOs-US](docs/screenshot-ios-us.png) |
 
-## ⚙️ Setup  ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
+## ⚙️ Setup  ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
 Add FlagKit dependency to your application:
 
 ```gradle.kts
