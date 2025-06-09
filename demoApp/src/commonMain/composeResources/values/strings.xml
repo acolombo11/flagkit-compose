@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_title">FlagKit Compose</string>
     <string name="button_dismiss">Dismiss</string>
     <string name="button_return_to_top">Return to top</string>
     <string name="label_search_flag">Search flag</string>
+    <string name="title_flag">Flag</string>
+    <string name="title_style">Style</string>
+    <string name="title_size">Size</string>
+    <string name="title_rounding">Rounding</string>
 </resources>

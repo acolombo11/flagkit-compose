@@ -3,7 +3,6 @@ package eu.acolombo.flagkit.demo
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,8 +22,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,60 +34,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import eu.acolombo.flagkit.demo.theme.Browse
+import eu.acolombo.flagkit.demo.theme.DemoAppTheme
 import eu.acolombo.flagkit.demo.theme.Icons
-import eu.acolombo.flagkit.demo.theme.PlusJakartaSans
-import eu.acolombo.flagkit.demo.theme.dynamicColorScheme
 import flagkit.Flag
 import flagkit.FlagKit
+import flagkit_compose.demoapp.generated.resources.Res
+import flagkit_compose.demoapp.generated.resources.app_title
+import flagkit_compose.demoapp.generated.resources.title_flag
+import flagkit_compose.demoapp.generated.resources.title_rounding
+import flagkit_compose.demoapp.generated.resources.title_size
+import flagkit_compose.demoapp.generated.resources.title_style
+import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DemoApp(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-) {
-    MaterialTheme(
-        colorScheme = dynamicColorScheme
-            ?: if (darkTheme) darkColorScheme() else lightColorScheme(),
-        typography = MaterialTheme.typography.copy(
-            titleLarge = MaterialTheme.typography.titleLarge.copy(
-                fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.ExtraBold,
-            ),
-            headlineSmall = MaterialTheme.typography.headlineSmall.copy(
-                fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.ExtraBold,
-            ),
-            bodyLarge = MaterialTheme.typography.bodyLarge.copy(
-                fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.Medium,
-            ),
-            labelLarge = MaterialTheme.typography.bodyLarge.copy(
-                fontFamily = PlusJakartaSans,
-                fontWeight = FontWeight.ExtraBold,
-            ),
-        )
-    ) {
+fun DemoApp() {
+    var showFlagPicker by remember { mutableStateOf(false) }
+    val flagPickerState = rememberLazyListState()
+
+    var flag by remember { mutableStateOf(FlagKit.Flag.US) }
+    var height by remember { mutableFloatStateOf(92f) }
+    var rounding by remember { mutableFloatStateOf(8f) }
+
+    DemoAppTheme {
         Scaffold(
             topBar = {
                 CenterAlignedTopAppBar(
-                    title = { Text("FlagKit Compose") }
+                    title = { Text(stringResource(Res.string.app_title)) },
                 )
             }
         ) { padding ->
-            var flag by remember { mutableStateOf(FlagKit.Flag.US) }
-            var height by remember { mutableFloatStateOf(92f) }
-            var rounding by remember { mutableFloatStateOf(8f) }
-            var showFlagPicker by remember { mutableStateOf(false) }
-            val flagPickerState = rememberLazyListState()
-
             if (showFlagPicker) {
                 FlagPickerDialog(
-                    modifier = Modifier.fillMaxHeight(.9f)
+                    modifier = Modifier
+                        .fillMaxHeight(.9f)
                         .clip(MaterialTheme.shapes.extraLarge),
                     lazyState = flagPickerState,
                     selectedFlag = flag,
@@ -98,7 +79,6 @@ fun DemoApp(
                     hidePicker = { showFlagPicker = false },
                 )
             }
-
             LazyColumn(
                 contentPadding = padding,
                 modifier = Modifier
@@ -116,27 +96,24 @@ fun DemoApp(
                         contentAlignment = Alignment.Center,
                     ) {
                         Flag(
-                            code = flag.name,
+                            flag = flag,
                             size = DpSize((height * 1.4).dp, height.dp),
                             shape = RoundedCornerShape(rounding.dp),
                         )
-                        if (flag == FlagKit.Flag.IL) {
-                            Text("\uD83D\uDD95", style = MaterialTheme.typography.headlineSmall)
-                        }
                     }
                 }
                 item {
-                    TitleItem("Flag")
+                    TitleItem(stringResource(Res.string.title_flag))
                 }
                 item {
-                    LocaleItem(flag = flag, onClick = { showFlagPicker = true })
+                    SelectedFlagItem(flag = flag, onClick = { showFlagPicker = true })
                 }
                 item {
-                    TitleItem("Style")
+                    TitleItem(stringResource(Res.string.title_style))
                 }
                 item {
                     SizeItem(
-                        title = "Size",
+                        title = stringResource(Res.string.title_size),
                         size = height,
                         minimumSize = 15f,
                         maximumSize = 160f,
@@ -145,7 +122,7 @@ fun DemoApp(
                 }
                 item {
                     SizeItem(
-                        title = "Rounding",
+                        title = stringResource(Res.string.title_rounding),
                         size = rounding,
                         minimumSize = 0f,
                         maximumSize = height / 2,
@@ -170,7 +147,7 @@ fun TitleItem(title: String) {
 }
 
 @Composable
-fun LocaleItem(
+fun SelectedFlagItem(
     flag: FlagKit.Flag,
     onClick: () -> Unit,
     height: Dp = 52.dp,
@@ -178,12 +155,12 @@ fun LocaleItem(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     Row(
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(shape)
             .fillMaxWidth()
             .clickable(interactionSource = interactionSource, indication = null, onClick = onClick),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
             modifier = Modifier
@@ -193,7 +170,10 @@ fun LocaleItem(
                 .clickable(interactionSource, indication = ripple(), onClick = onClick),
             contentAlignment = Alignment.Center,
         ) {
-            Icon(imageVector = Icons.Browse, contentDescription = null)
+            Icon(
+                imageVector = Icons.Browse,
+                contentDescription = null,
+            )
         }
         Column(
             modifier = Modifier
@@ -201,8 +181,13 @@ fun LocaleItem(
                 .clip(shape)
                 .clickable(interactionSource, indication = ripple(), onClick = onClick),
         ) {
-            Text(flag.region)
-            Text(flag.name, modifier = Modifier.alpha(.5f))
+            Text(
+                text = flag.region,
+            )
+            Text(
+                modifier = Modifier.alpha(.5f),
+                text = flag.name,
+            )
         }
     }
 }
@@ -218,10 +203,13 @@ fun SizeItem(
     Column {
         Column {
             Row {
-                Text(title, modifier = Modifier.weight(1f))
                 Text(
-                    text = "${size.toInt()} dp",
+                    modifier = Modifier.weight(1f),
+                    text = title,
+                )
+                Text(
                     modifier = Modifier.alpha(.5f),
+                    text = "${size.toInt()} dp",
                     style = MaterialTheme.typography.labelLarge
                 )
             }
