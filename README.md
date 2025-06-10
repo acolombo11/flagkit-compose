@@ -32,27 +32,35 @@ flagkit = { group = "eu.acolombo.flagkit", name = "flagkit", version.ref = "flag
 ```
 
 ## 🛠️ Usage
- ~~FlagKit provides both rectangular unstyled flags and styled flags in a variety of shapes. Our [sample project](Sources/Swift/FlagKitDemo-iOS) demonstrates how to display flags and customize them into different shapes (rounded corners, square, circle).~~
-
- ~~This brief example loads the flag for the users current locale, and retrieves the unstyled flag and a styled flag:~~
-
-```swift
-let countryCode = Locale.current.regionCode!
-let flag = Flag(countryCode: countryCode)!
-
-// Retrieve the unstyled image for customized use
-let originalImage = flag.originalImage
-
-// Or retrieve a styled flag
-let styledImage = flag.image(style: .circle)
+You can use the `Flag` composable with predefined flags
+```kotlin
+Flag(
+    flag = FlagKit.Flag.PS,
+    shape = RoundedCornerShape(6.dp),
+    size = DpSize(56.dp, 40.dp),
+)
 ```
-
- ~~You can always access the underlying assets directly, through the bundled Asset Catalog:~~
-
-```swift
-let countryCode = Locale.current.regionCode!
-let bundle = FlagKit.assetBundle
-let originalImage = UIImage(named: countryCode, in: bundle, compatibleWith: nil)
+Or simply with a region code string:
+```kotlin
+Flag(
+    flag = "it",
+    shape = RoundedCornerShape(6.dp),
+    size = DpSize(56.dp, 40.dp),
+)
+```
+There is also an API that closely resembles the original Swift FlagKit API, but it’s not recommended to use since the Compose API is more powerful and flexible:
+```kotlin
+Flag(
+    countryCode = "ma",
+    style = flagkit.FlagStyle.Circle,
+)
+```
+If needed, you can access the underlying flag assets directly as `ImageVector`s:
+```kotlin
+Image(
+    imageVector = FlagKit.Flag.MA.image,
+    contentDescription = null,
+)
 ```
 
 ## 📚 Reference
@@ -68,13 +76,11 @@ If you want to contribute:
 – Open a Pull Request for improvements  
 – Check the [issues](/../../issues) for bugs or enhancement ideas
 
-### Todo
-
-- [ ] Update the Usage, info above is not valid
-- [ ] Create better demo app
-- [ ] Create better README banner
+#### Todo
+- [ ] Improve demo app
+- [ ] Add github preview image + header in README.md
+- [ ] Add Locale Helpers
 - [ ] Add Unit and UI tests
-- [ ] Check Previews with Fleet
 
 ## 📄 License
 
