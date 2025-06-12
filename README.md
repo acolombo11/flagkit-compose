@@ -1,4 +1,4 @@
-# flagkit-compose &nbsp;
+# FlagKit Compose
 
 Beautiful flag icons for Compose Multiplatform and Android. All flags are provided as a Kotlin Multiplatform library through Composable functions.
 
@@ -43,7 +43,7 @@ Flag(
 Or simply with a region code string:
 ```kotlin
 Flag(
-    flag = "it",
+    code = "it",
     shape = RoundedCornerShape(6.dp),
     size = DpSize(56.dp, 40.dp),
 )
