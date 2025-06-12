@@ -2,6 +2,18 @@ package flagkit
 
 import platform.Foundation.ISOCountryCodes
 import platform.Foundation.NSLocale
+import platform.Foundation.countryCode
+import platform.Foundation.currentLocale
+import platform.Foundation.languageCode
+import platform.Foundation.regionCode
 
-@Suppress("UNCHECKED_CAST")
-actual fun getISOCountries() = NSLocale.ISOCountryCodes as List<String>
+actual object Locale {
+    actual val language: String?
+        get() = NSLocale.currentLocale.languageCode
+    actual val countryCode: String?
+        get() = NSLocale.currentLocale.countryCode
+    actual val regionCode: String?
+        get() = NSLocale.currentLocale.regionCode
+
+    actual fun getISOCountries(): List<String> = NSLocale.ISOCountryCodes as List<String>
+}

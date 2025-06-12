@@ -5,7 +5,9 @@ package eu.acolombo.flagkit.demo
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -33,9 +35,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import flagkit.Flag
 import flagkit.FlagKit
 import flagkit_compose.demoapp.generated.resources.Res
 import flagkit_compose.demoapp.generated.resources.button_dismiss
@@ -186,7 +190,7 @@ private fun FlagItem(
     variant: Boolean,
     onSelection: (FlagKit.Flag) -> Unit,
 ) {
-    Text(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(
@@ -200,15 +204,32 @@ private fun FlagItem(
                 onSelection(flag)
             }
             .padding(16.dp),
-        text = flag.region,
-        color = if (selected) {
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        val color = if (selected) {
             MaterialTheme.colorScheme.onPrimary
         } else {
             MaterialTheme.colorScheme.onSurface
-        },
-        overflow = TextOverflow.Ellipsis,
-        maxLines = 1,
-    )
+        }
+        Text(
+            text = flag.region,
+            color = color,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1,
+        )
+        Text(
+            modifier = Modifier
+                .alpha(.5f)
+                .weight(1f),
+            text = flag.name,
+            color = color,
+        )
+        Flag(
+            flag = flag,
+        )
+    }
+
 }
 
 @Composable

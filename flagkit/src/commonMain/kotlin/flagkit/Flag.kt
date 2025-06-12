@@ -2,19 +2,21 @@ package flagkit
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun Flag(
     flag: FlagKit.Flag,
-    shape: Shape,
-    size: DpSize,
     modifier: Modifier = Modifier,
+    shape: Shape = DefaultFlagShape,
+    size: DpSize = DefaultFlagSize,
     contentScale: ContentScale = ContentScale.FillWidth,
 ) {
     Image(
@@ -22,7 +24,7 @@ fun Flag(
             .size(size)
             .clip(shape),
         imageVector = flag.image,
-        contentDescription = listOfNotNull("Flag", flag.region).joinToString(""),
+        contentDescription = listOfNotNull("Flag", flag.region).joinToString(" "),
         contentScale = contentScale,
     )
 }
@@ -48,3 +50,6 @@ fun Flag(
         )
     } ?: placeholder()
 }
+
+private val DefaultFlagShape = RoundedCornerShape(2.dp)
+private val DefaultFlagSize = DpSize(28.dp, 20.dp)

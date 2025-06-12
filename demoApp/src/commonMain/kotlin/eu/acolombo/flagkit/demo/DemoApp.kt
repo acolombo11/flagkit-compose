@@ -42,6 +42,7 @@ import eu.acolombo.flagkit.demo.theme.DemoAppTheme
 import eu.acolombo.flagkit.demo.theme.Icons
 import flagkit.Flag
 import flagkit.FlagKit
+import flagkit.Locale
 import flagkit_compose.demoapp.generated.resources.Res
 import flagkit_compose.demoapp.generated.resources.app_title
 import flagkit_compose.demoapp.generated.resources.title_flag
@@ -56,7 +57,7 @@ fun DemoApp() {
     var showFlagPicker by remember { mutableStateOf(false) }
     val flagPickerState = rememberLazyListState()
 
-    var flag by remember { mutableStateOf(FlagKit.Flag.US) }
+    var flag by remember { mutableStateOf(getDefaultFlag()) }
     var height by remember { mutableFloatStateOf(92f) }
     var rounding by remember { mutableFloatStateOf(8f) }
 
@@ -135,6 +136,11 @@ fun DemoApp() {
 //                Flag("it", style = flagkit.FlagStyle.Circle, size = DpSize(60.dp, 60.dp))
         }
     }
+}
+
+private fun getDefaultFlag(): FlagKit.Flag {
+    val locale = Locale.countryCode
+    return FlagKit.Flag.entries.find { it.name == locale } ?: FlagKit.Flag.US
 }
 
 @Composable
