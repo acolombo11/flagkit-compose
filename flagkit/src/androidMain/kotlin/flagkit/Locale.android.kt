@@ -7,8 +7,6 @@ actual object Locale {
         get() = Locale.getDefault().language
     actual val countryCode: String?
         get() = Locale.getDefault().country
-    actual val regionCode: String?
-        get() = null
 
     actual fun getISOCountries(): List<String> = Locale.getISOCountries().toList()
 }

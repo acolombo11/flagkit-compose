@@ -11,9 +11,7 @@ actual object Locale {
     actual val language: String?
         get() = NSLocale.currentLocale.languageCode
     actual val countryCode: String?
-        get() = NSLocale.currentLocale.countryCode
-    actual val regionCode: String?
-        get() = NSLocale.currentLocale.regionCode
+        get() = NSLocale.currentLocale.countryCode // or regionCode
 
     actual fun getISOCountries(): List<String> = NSLocale.ISOCountryCodes as List<String>
 }
