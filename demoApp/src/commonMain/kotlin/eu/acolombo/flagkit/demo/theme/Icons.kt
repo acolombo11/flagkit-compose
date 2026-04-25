@@ -30,10 +30,10 @@ val Icons.Browse: ImageVector
             fill = SolidColor(Color.Transparent),
             stroke = SolidColor(Color.Black),
             strokeLineWidth = 2.0f,
-            strokeLineCap = StrokeCap.Companion.Round,
-            strokeLineJoin = StrokeJoin.Companion.Round,
+            strokeLineCap = StrokeCap.Round,
+            strokeLineJoin = StrokeJoin.Round,
             strokeLineMiter = 4.0f,
-            pathFillType = PathFillType.Companion.NonZero,
+            pathFillType = PathFillType.NonZero,
         ) {
             moveTo(21.0f, 12.0f)
             horizontalLineTo(3.0f)

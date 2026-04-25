@@ -1,19 +1,17 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.fromTarget(libs.versions.java.jdk.get()))
-        }
+    android {
+        namespace = "eu.acolombo.flagkit.demo.app"
+        compileSdk = libs.versions.android.targetSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        androidResources.enable = true
     }
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -29,31 +27,13 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.flagkit)
 
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.materialIconsExtended)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.components.resources)
+            implementation(libs.compose.components.ui.tooling.preview)
         }
-        androidMain.dependencies {
-            implementation(libs.androidx.activity.compose)
-        }
-    }
-}
-
-android {
-    namespace = "eu.acolombo.flagkit.demo"
-    compileSdk = libs.versions.android.maxSdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.maxSdk.get().toInt()
-    }
-    compileOptions {
-        val javaVersion = JavaVersion.toVersion(libs.versions.java.jdk.get().toInt())
-        sourceCompatibility = javaVersion
-        targetCompatibility = javaVersion
     }
 }

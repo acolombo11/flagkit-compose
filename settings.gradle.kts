@@ -29,4 +29,5 @@ dependencyResolutionManagement {
 }
 
 include(":demoApp")
+include(":demoAppAndroid")
 include("flagkit")
