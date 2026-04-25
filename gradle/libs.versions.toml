@@ -7,7 +7,7 @@ androidxActivityCompose = "1.13.0"
 composeMaterial3 = "1.9.0"
 composeMaterialIconsExtended = "1.7.3"
 composeMultiplatform = "1.10.3"
-mavenPlugin = "0.30.0"
+mavenPlugin = "0.36.0"
 kotlin = "2.3.21"
 
 
