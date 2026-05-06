@@ -8,11 +8,12 @@ FlagKit Compose is a port of the original [FlagKit](https://github.com/madebybow
 
 The screenshots below show the demo app using different Material You themes on Android, and the demo app on iOS
 
-| Android 🇵🇸                                    | Android 🇮🇹                                    | Android 🇲🇦                                     | iOS 🇺🇸                                |
+| Android 🇵🇸                                  | Android 🇮🇹                                  | Android 🇲🇦                                  | iOS 🇺🇸                              |
 |-----------------------------------------------|-----------------------------------------------|-----------------------------------------------|---------------------------------------|
 | ![Android-PS](docs/screenshot-android-ps.png) | ![Android-IT](docs/screenshot-android-it.png) | ![Android-MA](docs/screenshot-android-ma.png) | ![iOS-US](docs/screenshot-ios-us.png) |
 
 ## ⚙️ Setup  ![Maven Central Version](https://img.shields.io/maven-central/v/eu.acolombo.flagkit/flagkit)
+
 Add FlagKit dependency to your application:
 
 ```gradle.kts
@@ -32,7 +33,9 @@ flagkit = { group = "eu.acolombo.flagkit", name = "flagkit", version.ref = "flag
 ```
 
 ## 🛠️ Usage
+
 You can use the `Flag` composable with predefined flags
+
 ```kotlin
 Flag(
     flag = FlagKit.Flag.PS,
@@ -40,7 +43,9 @@ Flag(
     size = DpSize(56.dp, 40.dp),
 )
 ```
+
 Or simply with a region code string:
+
 ```kotlin
 Flag(
     code = "it",
@@ -48,14 +53,18 @@ Flag(
     size = DpSize(56.dp, 40.dp),
 )
 ```
+
 There is also an API that closely resembles the original Swift FlagKit API, but it’s not recommended to use since the Compose API is more powerful and flexible:
+
 ```kotlin
 Flag(
     countryCode = "ma",
     style = flagkit.FlagStyle.Circle,
 )
 ```
+
 If needed, you can access the underlying flag assets directly as `ImageVector`s:
+
 ```kotlin
 Image(
     imageVector = FlagKit.Flag.MA.image,
@@ -77,8 +86,9 @@ If you want to contribute:
 – Check the [issues](/../../issues) for bugs or enhancement ideas
 
 #### Todo
+
 - [ ] Improve demo app
-- [ ] Add github preview image + header in README.md
+- [ ] Add GitHub preview image + header in README.md
 - [ ] Add Locale Helpers
 
 ## 📄 License
