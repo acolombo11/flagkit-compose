@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.roborazzi)
 }
 
 group = "eu.acolombo.flagkit"
@@ -14,6 +15,9 @@ kotlin {
         namespace = "flagkit"
         compileSdk = libs.versions.android.targetSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
+        withHostTest {
+            isIncludeAndroidResources = true
+        }
     }
 
     jvmToolchain(libs.versions.java.jdk.get().toInt())
@@ -30,7 +34,22 @@ kotlin {
             implementation(libs.compose.components.resources)
             implementation(libs.compose.components.ui.tooling.preview)
         }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+        }
+
+        androidHostTest.dependencies {
+            implementation(libs.roborazzi)
+            implementation(libs.roborazzi.compose)
+            implementation(libs.robolectric)
+            implementation(libs.compose.ui.test.junit4)
+        }
     }
+}
+
+roborazzi {
+    outputDir.set(project.file("src/androidHostTest/screenshots"))
 }
 
 // https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html
