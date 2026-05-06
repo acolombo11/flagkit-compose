@@ -16,14 +16,14 @@ The screenshots below show the demo app using different Material You themes on A
 Add FlagKit dependency to your application:
 
 ```gradle.kts
-implementation("eu.acolombo.flagkit:flagkit:1.1.1")
+implementation("eu.acolombo.flagkit:flagkit:1.1.3")
 ```
 
 If you are using version catalogs:
 
 ```toml
 [versions]
-flagkit = "1.1.1"
+flagkit = "1.1.3"
 # …
 
 [libraries]
@@ -80,7 +80,6 @@ If you want to contribute:
 - [ ] Improve demo app
 - [ ] Add github preview image + header in README.md
 - [ ] Add Locale Helpers
-- [ ] Add Unit and UI tests
 
 ## 📄 License
 
