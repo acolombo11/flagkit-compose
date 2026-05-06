@@ -2,8 +2,9 @@
 
 name: Publish
 on:
-  release:
-    types: [released, prereleased]
+  push:
+    tags:
+      - '[0-9]*'
 jobs:
   test:
     name: Run tests

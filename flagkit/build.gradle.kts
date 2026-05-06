@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "eu.acolombo.flagkit"
-version = "1.1.2"
+version = "1.1.3"
 
 kotlin {
     android {
@@ -39,11 +39,13 @@ kotlin {
             implementation(kotlin("test"))
         }
 
-        androidHostTest.dependencies {
-            implementation(libs.roborazzi)
-            implementation(libs.roborazzi.compose)
-            implementation(libs.robolectric)
-            implementation(libs.compose.ui.test.junit4)
+        val androidHostTest by getting {
+            dependencies {
+                implementation(libs.roborazzi)
+                implementation(libs.roborazzi.compose)
+                implementation(libs.robolectric)
+                implementation(libs.compose.ui.test.junit4)
+            }
         }
     }
 }
