@@ -85,12 +85,6 @@ If you want to contribute:
 – Open a Pull Request for improvements  
 – Check the [issues](/../../issues) for bugs or enhancement ideas
 
-#### Todo
-
-- [ ] Improve demo app
-- [ ] Add GitHub preview image + header in README.md
-- [ ] Add Locale Helpers
-
 ## 📄 License
 
 FlagKit Compose is released under the MIT license. See
