@@ -6,11 +6,11 @@ java-jdk = "21"
 androidxActivityCompose = "1.13.0"
 composeMaterial3 = "1.9.0"
 composeMaterialIconsExtended = "1.7.3"
-composeMultiplatform = "1.10.3"
-mavenPlugin = "0.36.0"
-kotlin = "2.3.21"
+composeMultiplatform = "1.11.1"
+mavenPlugin = "0.37.0"
+kotlin = "2.4.0"
 robolectric = "4.16.1"
-roborazzi = "1.60.0"
+roborazzi = "1.64.0"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
