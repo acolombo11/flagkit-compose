@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "eu.acolombo.flagkit"
-version = "1.1.3"
+version = "1.2.0"
 
 kotlin {
     android {
@@ -21,6 +21,8 @@ kotlin {
     }
 
     jvmToolchain(libs.versions.java.jdk.get().toInt())
+
+    jvm()
 
     iosX64()
     iosArm64()

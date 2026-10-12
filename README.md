@@ -17,14 +17,14 @@ The screenshots below show the demo app using different Material You themes on A
 Add FlagKit dependency to your application:
 
 ```gradle.kts
-implementation("eu.acolombo.flagkit:flagkit:1.1.3")
+implementation("eu.acolombo.flagkit:flagkit:1.2.0")
 ```
 
 If you are using version catalogs:
 
 ```toml
 [versions]
-flagkit = "1.1.3"
+flagkit = "1.2.0"
 # …
 
 [libraries]
